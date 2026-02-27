@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هدية لإسراء</title>
+    <style>
+        body { background-color: #d1c4e9; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #4b0082; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        .card { background: rgba(255, 255, 255, 0.2); padding: 20px; border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); backdrop-filter: blur(4px); border: 1px solid rgba(255, 255, 255, 0.18); width: 80%; max-width: 400px; }
+        img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+        button { background-color: #ff80ab; color: white; border: none; padding: 12px 25px; border-radius: 25px; cursor: pointer; font-size: 18px; margin: 10px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        button:hover { background-color: #f06292; transform: scale(1.1); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="step1" class="card">
+        <h2>أنتي إسراء؟</h2>
+        <button onclick="nextStep(2)">أيوه أنا</button>
+    </div>
+
+    <div id="step2" class="card hidden">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R5Z3R5Z3R5/L40v1.gif">
+        <h2>هلو إسراء ❤️</h2>
+        <button onclick="nextStep(3)">هلوو</button>
+    </div>
+
+    <div id="step3" class="card hidden">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbXN6cHF6cHF6cHF6/giphy.gif">
+        <h2>اسراء عندي سؤال الجججج 🙈</h2>
+        <button onclick="nextStep(4)">شنو هو؟</button>
+    </div>
+
+    <div id="step4" class="card hidden">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R5Z3R5Z3R5/L40v2.gif">
+        <h2>تحبين أحمد لو لاء؟ 🙄</h2>
+        <button onclick="nextStep(5)">أحبه ❤️</button>
+        <button id="noBtn" onmouseover="moveButton()">لأ</button>
+    </div>
+
+    <div id="step5" class="card hidden">
+        <p style="font-size: 14px;">"جمالكِ الأقوالُ وراؤكِ فافتُتنت بكِ العُذالُ، وهبَ الإلهُ بكِ الجمالَ تجملاً حتى كأنكِ للجمالِ جِمالُ"</p>
+        <button onclick="alert('أنا كمان أعشقك!')">أعشقك وأحبك 💖</button>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.card').forEach(div => div.classList.add('hidden'));
+            document.getElementById('step' + step).classList.remove('hidden');
+        }
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            btn.style.position = 'absolute';
+            btn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+            btn.style.left = Math.random() * (window.innerWidth - 50) + 'px';
+        }
+    </script>
+</body>
+</html>
