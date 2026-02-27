@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هدية لإسراء</title>
+    <style>
+        body { 
+            background-color: #ffebee; 
+            text-align: center; 
+            font-family: 'Cairo', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            overflow: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/hearts.png');
+        }
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 30px; 
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3); 
+            width: 85%; 
+            max-width: 350px; 
+            border: 3px solid #f48fb1;
+            position: relative;
+            z-index: 10;
+        }
+        img { width: 150px; margin-bottom: 20px; border-radius: 15px; }
+        h2 { color: #ad1457; font-size: 22px; }
+        button { 
+            background-color: #f06292; 
+            color: white; 
+            border: none; 
+            padding: 12px 25px; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-size: 18px; 
+            margin: 10px; 
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        button:hover { background-color: #e91e63; transform: scale(1.1); }
+        .hidden { display: none; }
+        #noBtn { position: absolute; transition: 0.2s; }
+    </style>
+</head>
+<body>
+
+    <div id="step1" class="card">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R5Z3R5Z3R5/L40v1.gif" alt="Teddy">
+        <h2>أنتي حبيبي؟ 🦋</h2>
+        <button onclick="nextStep(2)">أيوه أنا</button>
+    </div>
+
+    <div id="step2" class="card hidden">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R5Z3R5Z3R5/L40v2.gif" alt="Happy Teddy">
+        <h2>هاي حبيبي.. عندي ليكي سؤال 🙈</h2>
+        <button onclick="nextStep(3)">قولي؟</button>
+    </div>
+
+    <div id="step3" class="card hidden">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R5Z3R5Z3R5/L40v3.gif" alt="Teddy Love">
+        <h2>بتحبي أحمد ولا لاء؟ 🙄</h2>
+        <button onclick="nextStep(4)">أحبه ❤️</button>
+        <button id="noBtn" onmouseover="moveButton()">لأ</button>
+    </div>
+
+    <div id="step4" class="card hidden">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R5Z3R5Z3R5/L40v4.gif" alt="Celebrate">
+        <h2 id="finalText">"أحبكِ لأنكِ أنتِ…
+ لأنكِ أجمل النساء
+ولأنكِ الشيء الوحيد
+الذي حين أضيع… ألقاه.
+أنتِ التفاصيل الصغيرة
+التي تجعل يومي كبيرًا..." ❤️</h2>
+        <button onclick="alert('أنا كمان أعشقك!')">أعشقك وأحبك 💖</button>
+    </div>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.card').forEach(div => div.classList.add('hidden'));
+            document.getElementById('step' + step).classList.remove('hidden');
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
+
